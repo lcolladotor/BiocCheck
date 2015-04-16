@@ -1,0 +1,13 @@
+import(optparse)
+import(methods)
+import(BiocInstaller)
+importMethodsFrom(graph, acc, nodes)
+import(biocViews)
+import(httr)
+importFrom(devtools, create, unload)
+importFrom(knitr, purl, Sweave2knitr)
+importFrom(tools, parse_Rd, Rd2ex)
+importFrom(codetools, checkUsageEnv)
+
+export(BiocCheck)
+export(usage)
