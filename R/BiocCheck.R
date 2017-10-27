@@ -132,12 +132,17 @@ BiocCheck <- function(package, ...)
             .msg("See http://bioconductor.org/developers/how-to/biocViews/")
         }
     }
+
     handleCheck("Checking build system compatibility...")
     checkBBScompatibility(package_dir)
+
     handleCheck("Checking unit tests...")
     checkUnitTests(package_dir)
-    parsedCode <- parseFiles(package_dir)
+
+    handleCheck("Checking testthat::skip_on_bioc...")
     checkSkipOnBioc(package_dir)
+
+    parsedCode <- parseFiles(package_dir)
 
     handleCheck("Checking native routine registration...")
     checkRegistrationOfEntryPoints(package_name, parsedCode)
